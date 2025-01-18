@@ -6,8 +6,34 @@
  * Ajoutez vos noms, prénoms et matricules
 */
 
+#include <fcntl.h>    
+#include <unistd.h>   
+#include <stdio.h>    
+#include <stdlib.h>   
+
+
 
 int main () {
     // TODO
+    const char* filename = "systemcalls_output2.txt";
+    int file;
+    
+    file = open(filename, O_TRUNC);
+    if (file < 0) {
+        perror("Appel systeme open a echoue");
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Saisissez votre text suivi de CTRL-D :\n");
+
+    char buffer;
+    ssize_t bytesRead;
+
+    while ((bytesRead = read(STDIN_FILENO, buffer, 1)) > 0) {
+        write(file, buffer, bytesRead);
+    }
+
+    close(file);
+    
     return 0;
 }
