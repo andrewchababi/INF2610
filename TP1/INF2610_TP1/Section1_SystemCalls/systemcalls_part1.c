@@ -18,7 +18,7 @@ int main () {
     const char* filename = "systemcalls_output2.txt";
     int file;
     
-    file = open(filename, O_TRUNC);
+    file = open(filename, O_TRUNC | O_WRONLY);
     if (file < 0) {
         perror("Appel systeme open a echoue");
         exit(EXIT_FAILURE);
@@ -26,7 +26,7 @@ int main () {
 
     printf("Saisissez votre text suivi de CTRL-D :\n");
 
-    char buffer;
+    char buffer[1];
     ssize_t bytesRead;
 
     while ((bytesRead = read(STDIN_FILENO, buffer, 1)) > 0) {
