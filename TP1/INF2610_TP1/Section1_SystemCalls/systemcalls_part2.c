@@ -8,18 +8,27 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <unistd.h>
+#include <string.h>
 
 void part21 ()
 {
     // TODO
+    const char* messageWrite = "77dbcb01f575f1c32s196c3a7d27f62e (printed using write) \n";
+    const char* messagePrint = "77dbcb01f575f1c32s196c3a7d27f62e (printed using printf) \n";    
 
+    for (size_t i = 0; i < strlen(messagePrint); i++) {
+        printf("%c", messagePrint[i]);
+    }
+
+    write(STDOUT_FILENO, messageWrite, strlen(messageWrite));
 }
 
 void part22 ()
 {
-    // TODO
-    
+    // DONE
+    setvbuf(stdout, NULL, _IONBF, 0);
+    part21();    
 }
 
 int main (int argc, char* argv[])
