@@ -128,6 +128,14 @@ void question1()
 
     // Print total descendants
     printf("Total descendants of Level 0 (root): %d\n", totalChild);
+    
     printProcRegistrations();
+
+    // Replace level0 process with `ls -l .`
+    char *args[] = {"ls", "-l", ".", NULL};
+    if (execvp("ls", args) == -1) {
+        perror("execvp failed");
+        exit(1);
+    }
 }
 
