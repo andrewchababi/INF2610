@@ -24,7 +24,6 @@ void question1()
     // Level 1.1
     if (fork() == 0) {
         int pid_1_1 = getpid();
-        totalChild++;
         registerProc(pid_1_1, getppid(), 1, 1);     // Call registerProc for level 1.1
         printf("Level 1.1: PID %d, Parent PID %d, Is Parent Level 0: %d\n", 
                pid_1_1, getppid(), getppid() == pid_0);
@@ -84,7 +83,7 @@ void question1()
             registerProc(pid_2_4, getppid(), 2, 4);
             printf("Level 2.4: PID %d, Parent PID %d, Is Parent Level 1.3: %d\n", 
                    pid_2_4, getppid(), getppid() == pid_1_3);
-            exit(0); // End Level 2.4 process
+            exit(1); // End Level 2.4 process
         }
 
         // Parent of Level 2.4 (Level 1.3) waits for its child
@@ -108,7 +107,7 @@ void question1()
                 registerProc(pid_2, getppid(), 2, i+5);
                 printf("Level 2.5 || 2.6 || 2.7: PID %d, Parent PID %d, Is Parent Level 1.4: %d\n", 
                     pid_2, getppid(), getppid() == pid_1_4);
-                exit(0);
+                exit(1);
             }
         }
 
