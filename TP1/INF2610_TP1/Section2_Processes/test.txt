@@ -1,0 +1,16 @@
+THIS IS THE TERMINAL OUTPUT OF THE COMMAND ./processLab 1
+
+
+Level 0: PID 5823 
+Level 1.3: PID 5826, Parent PID 5823, Is Parent Level 0: 1
+Level 1.4: PID 5827, Parent PID 5823, Is Parent Level 0: 1
+Level 1.2: PID 5825, Parent PID 5823, Is Parent Level 0: 1
+Level 1.1: PID 5824, Parent PID 5823, Is Parent Level 0: 1
+Level 2.4: PID 5828, Parent PID 5826, Is Parent Level 1.3: 1
+Level 2.5 || 2.6 || 2.7: PID 5830, Parent PID 5827, Is Parent Level 1.4: 1
+Level 2.5 || 2.6 || 2.7: PID 5829, Parent PID 5827, Is Parent Level 1.4: 1
+Level 2.5 || 2.6 || 2.7: PID 5831, Parent PID 5827, Is Parent Level 1.4: 1
+Level 2.2 || 2.3: PID 5832, Parent PID 5825, Is Parent Level 1.2: 1
+Level 2.2 || 2.3: PID 5833, Parent PID 5825, Is Parent Level 1.2: 1
+Level 2.1: PID 5834, Parent PID 5824, Is Parent Level 1.1: 1
+
