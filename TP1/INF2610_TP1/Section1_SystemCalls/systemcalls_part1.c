@@ -14,12 +14,13 @@
 
 int main () {
     // TODO
-    const char* filename = "systemcalls_output1.txt";
-
-    int file = open(filename,O_WRONLY | O_TRUNC);
+    const char* filename = "systemcalls_output2.txt";
+    int file;
+    
+    file = open(filename,O_WRONLY | O_TRUNC | O_WRONLY);
     if (file < 0) {
         perror("Appel systeme open a echoue");
-        return EXIT_FAILURE;
+        exit(EXIT_FAILURE);
     }
 
     const char* message = "Saisissz votre texte suivi de CTRL-D : \n";
@@ -27,12 +28,19 @@ int main () {
     
     char buffer[1]; 
     ssize_t size;
+    printf("Saisissez votre text suivi de CTRL-D :\n");
+
+    char buffer[1];
+    ssize_t bytesRead;
+
+    char buffer[1];
+    ssize_t bytesRead;
 
     while((size = read(STDIN_FILENO, buffer, 1)) > 0) {
         write(file, buffer, size);
     }
 
     close(file);
-
+    
     return 0;
 }

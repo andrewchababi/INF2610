@@ -7,6 +7,9 @@
 */
 
 #include "./libprocesslab/libprocesslab.h"
+#include <pthread.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #define m 1000000
 #define nb 4
@@ -18,6 +21,15 @@ long somme[nb];
 void* contribution(void*p)
 {
     // TODO
+    int no = *(int*)p;
+    int start = (no * m)/nb + 1;
+    int end = (no + 1)*m/nb;
+
+    somme[no] = 0;
+
+    for(int i = start; i <= end; i++){
+      somme[no] += i;
+    }
 
   return NULL;
 }
@@ -26,6 +38,13 @@ void* contribution(void*p)
 void question2( )
 {
     // TODO
+
+    pthread_t threads[nb]; // creer un tableau pour les threads
+    int thread_args[nb];
+    // pthread_create();
+
+    // int total = m * (m + 1)/2;
+    // printf( );
     
 }
 
