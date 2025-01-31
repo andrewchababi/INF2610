@@ -3,7 +3,8 @@
  * Hiver 2025
  * SystemCalls - part2.c
  *
- * Ajoutez vos noms, prénoms et matricules
+ * Chababi, Andrew 2289508
+ * Huor, Christine 2299836
 */
 
 #include <stdio.h>
